@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @Slf4j
 /**
- * performs curd operations of the company in db
+ * performs CRUD operations of the company in db
  */
 public class CompanyService
 {

@@ -11,7 +11,6 @@ public class Company {
 
     @Column(unique = true)
     String name;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer companyId;

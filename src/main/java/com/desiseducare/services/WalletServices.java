@@ -25,7 +25,6 @@ public class WalletServices {
     UserRepository userRepository;
     @Autowired
     TransactionsRepository transactionsRepository;
-
     /**
      * Function that transfers money from wallet of a given user
      * @param userID integer representing userID of a particular user

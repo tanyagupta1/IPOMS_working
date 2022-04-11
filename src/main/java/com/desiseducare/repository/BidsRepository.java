@@ -19,10 +19,12 @@ public interface BidsRepository extends JpaRepository<Bids,Integer>
     List<Bids> findByCompanyIdIs(Integer companyId);
     List<Bids> findAllByBidPriceIs(Float bidPrice);
     List<Bids> findAllByUserTypeIsAndBidPriceGreaterThanEqual(String userType, Float bidPrice);
-    List<Bids> findAllByUserTypeIsAndCompanyIdIsAndBidPriceGreaterThanEqual( String userType,Integer companyId, Float bidPrice);
+    List<Bids> findAllByUserTypeIsAndCompanyIdIsAndBidPriceGreaterThanEqual
+            ( String userType,Integer companyId, Float bidPrice);
     @Query(value = "SELECT SUM(number_of_lots_subscribed) " +
             "FROM bids WHERE" +
             " (user_type= :userType AND bid_price>= :bidPrice AND company_id= :companyID)", nativeQuery = true)
-    Integer findSumOfValidBids( @Param("companyID") Integer companyID, @Param("userType") String userType,@Param("bidPrice") Float bidPrice);
+    Integer findSumOfValidBids( @Param("companyID") Integer companyID, @Param("userType") String userType,
+                                @Param("bidPrice") Float bidPrice);
     List<Bids> findAllByUserTypeIs(String userType);
 }

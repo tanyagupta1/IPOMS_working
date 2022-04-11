@@ -23,10 +23,10 @@ public class CompanyConfig
         {
 
 
-            Company Oracle = new Company("Oracle");
+            Company DEShaw = new Company("DE-Shaw");
 
-            Oracle.setPassword(passwordEncoder.encode("oracle"));
-            repository.saveAll(List.of(Oracle));
+            DEShaw.setPassword(passwordEncoder.encode("deshaw"));
+            repository.saveAll(List.of(DEShaw));
         };
     }
 }

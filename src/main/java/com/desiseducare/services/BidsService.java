@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * performs curd operations on bid along with checks when adding a bid
+ * performs CRUD operations on bid along with checks when adding a bid
  */
 @Service
 public class BidsService

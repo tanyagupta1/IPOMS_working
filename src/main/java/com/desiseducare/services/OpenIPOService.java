@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * performs curd operations and some ipo date validation check
+ * performs CRUD operations and some ipo date validation check
  */
 @Service
 public class OpenIPOService

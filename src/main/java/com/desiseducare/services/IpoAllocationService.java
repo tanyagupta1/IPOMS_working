@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * performs curd operations for IpoAllocation table in db
+ * performs CRUD operations for IpoAllocation table in db
  */
 @Service
 public class IpoAllocationService
