@@ -80,7 +80,7 @@ public class IpoController
     {
         List<OpenIPO> openIPOs= openIPOService.getAllOpenIPOs();
         model.addAttribute("openIPOs",openIPOs);
-        return "openIPOTable";
+        return "openIPOTableCompany";
     }
 
     /**
