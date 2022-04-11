@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<table border="2">
+    <tbody>
+    <tr>
+        <th>Company ID</th>
+        <th>Name</th>
+        <th>Password</th>
+    </tr>
+    <tr th:each="company:${companies}">
+        <td th:text="${company.companyId}"></td>
+        <td th:text="${company.name}"></td>
+        <td th:text="${company.password}"></td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

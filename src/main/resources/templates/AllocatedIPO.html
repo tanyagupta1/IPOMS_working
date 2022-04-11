@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<table border="2">
+    <tbody>
+    <tr>
+        <th>Allocation Id</th>
+        <th>Company Id</th>
+        <th>User ID</th>
+        <th>User Type</th>
+        <th>No of lots allocated</th>
+    </tr>
+    <tr th:each="bid:${bids}">
+        <td th:text="${bid.allocationId}"></td>
+        <td th:text="${bid.companyId}"></td>
+        <td th:text="${bid.userId}"></td>
+        <td th:text="${bid.userType}"></td>
+        <td th:text="${bid.noOfSharesAllocated}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

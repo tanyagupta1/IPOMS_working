@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<table border="2">
+    <tbody>
+    <tr>
+
+        <th>Bid Id</th>
+        <th>User ID</th>
+        <th>User Type</th>
+        <th>Company Id</th>
+        <th>Bid date</th>
+        <th>lotSize</th>
+        <th>BidPricePerShare</th>
+        <th>Total Amount</th>
+    </tr>
+    <tr th:each="bid:${bids}">
+        <td th:text="${bid.bidId}"></td>
+        <td th:text="${bid.userId}"></td>
+        <td th:text="${bid.userType}"></td>
+        <td th:text="${bid.companyId}"></td>
+        <td th:text="${#dates.format(bid.bidDate,'dd-MM-yyyy')}"></td>
+        <td th:text="${bid.NumberOfLotsSubscribed}"></td>
+        <td th:text="${bid.bidPrice}"></td>
+        <td th:text="${bid.totalPrice}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

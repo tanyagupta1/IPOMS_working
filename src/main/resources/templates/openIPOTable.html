@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<table border="2">
+    <tbody>
+    <tr>
+        <th>Company ID</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>lotSize</th>
+        <th>FloorPrice</th>
+        <th>CapPrice</th>
+        <th>Total offered shares</th>
+        <th>Apply</th>
+    </tr>
+    <tr th:each="openIPO:${openIPOs}">
+        <td th:text="${openIPO.companyID}"></td>
+        <td th:text="${#dates.format(openIPO.startDate,'dd-MM-yyyy')}"></td>
+        <td th:text="${#dates.format(openIPO.endDate,'dd-MM-yyyy')}"></td>
+        <td th:text="${openIPO.lotSize}"></td>
+        <td th:text="${openIPO.floorPrice}"></td>
+        <td th:text="${openIPO.capPrice}"></td>
+        <td th:text="${openIPO.totalNumberOfSharesOffered}"></td>
+        <td><a th:href="@{/user/makeBid/{uid}/{cid}(uid=${userId},cid=${openIPO.companyID})}">Make bid</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

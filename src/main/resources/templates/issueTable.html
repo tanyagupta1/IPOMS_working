@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<table border="2">
+  <tbody>
+  <tr>
+
+    <th>Price</th>
+    <th>Number of shares</th>
+
+  </tr>
+  <tr th:each="bid:${bids}">
+    <td th:text="${bid.price}"></td>
+    <td th:text="${bid.value}"></td>
+
+  </tr>
+  </tbody>
+</table>
+<form action="#" th:action="@{/company/issuePrice/{id}(id=${companyId})}"  method="post">
+<!--  <p>-->
+<!--    Company Id: <input type="text" name="companyID">-->
+<!--  </p>-->
+  <p>
+    Issue Price: <input type="text" name="cutoff">
+  </p>
+  <p>
+    RII %: <input type="text" name="RIIPercentage">
+  </p>
+  <p>
+   NII %: <input type="text" name="NIIPercentage">
+  </p>
+  <p>
+    QBI %: <input type="text" name="QIBPercentage">
+  </p>
+    <input type="submit" value="Submit"/> <input type="reset" value="Reset">
+  </p>
+</form>
+
+</body>
+</html>

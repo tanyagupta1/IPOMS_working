@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add user</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Add OpenIPO</h1>
+
+<form action="#" th:action="@{/company/addNewIPO/{id}(id=${companyId})}"  method="post">
+<!--    <p>-->
+<!--        CompanyId: <input type="text" name="companyID" th:value="${companyId}">-->
+<!--    </p>-->
+    <p>
+        startDate: <input type="date" name="startDate">
+    </p>
+    <p>
+        endDate: <input type="date" name="endDate">
+    </p>
+    <p>
+        lotSize: <input type="text" name="lotSize">
+    </p>
+    <p>
+        floorPrice: <input type="text" name="floorPrice">
+    </p>
+    <p>
+        capPrice: <input type="text" name="capPrice">
+    </p>
+    <p>
+        TotalNoOfShares: <input type="text" name="totalNumberOfSharesOffered">
+    </p>
+    <p>
+        <input type="submit" value="Submit"/> <input type="reset" value="Reset">
+    </p>
+</form>
+
+</body>
+</html>

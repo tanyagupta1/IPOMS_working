@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Transactions</title>
+</head>
+<body>
+
+<table border="2">
+    <tbody>
+    <tr>
+        <th>Transaction ID</th>
+        <th>User ID</th>
+        <th>Transaction Date</th>
+        <th>Transaction Amount</th>
+<!--        <th>Closing Balance</th>-->
+    </tr>
+    <tr th:each="transaction:${transactions}">
+        <td th:text="${transaction.transactionID}"></td>
+        <td th:text="${transaction.userID}"></td>
+        <td th:text="${transaction.transactionDate}"></td>
+        <td th:text="${transaction.transactionAmount}"></td>
+<!--        <td th:text="${transaction.closingBalance}"></td>-->
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

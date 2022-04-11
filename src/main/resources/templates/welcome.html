@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+<span>Welcome<th:block th:text="${name}">[name]</th:block></span>
+<form action="#" th:action="@{/loginQuery}"  method="post">
+<!--    <p>-->
+<!--        UserType: <input type="text" th:value="${sourceText}" name="sourceText"/>-->
+<!--    </p>-->
+
+    <div>
+        <label>User Type</label>
+        <select th:value="${userType}" name="userType">
+            <option th:each="type : ${allTypes}"
+                    th:value="${type}"
+                    th:text="${type}">
+            </option>
+        </select>
+    </div>
+
+    <div>
+        <label>Entry mode</label>
+        <select th:value="${entryMode}" name="entryMode">
+            <option th:each="type : ${entryOptions}"
+                    th:value="${type}"
+                    th:text="${type}">
+            </option>
+        </select>
+    </div>
+
+    <input type="submit" value="Submit"/>
+    <input type="reset" value="Reset">
+</form>
+</body>
+</html>

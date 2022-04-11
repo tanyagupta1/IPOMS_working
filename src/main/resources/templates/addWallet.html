@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<form action="#" th:action="@{/user/addAmountToWallet/{id}(id=${userId})}"  method="post">
+   <p>
+       Current balance:
+       <span   th:text="${amount}">Amount</span>
+   </p>
+    <p>
+        Wallet Amount: <input type="text" name="amount">
+    </p>
+    <input type="submit" value="Add to Wallet"/>
+</form>
+
+</body>
+</html>

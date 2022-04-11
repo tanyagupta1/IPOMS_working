@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add user</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Add BID</h1>
+
+<form action="#" th:action="@{/user/processBid/{uid}/{cid}(uid=${userId},cid=${companyId})}"  method="post">
+
+    <p>
+        Number of lots: <input type="text" name="NumberOfLotsSubscribed">
+    </p>
+    <p>
+        bidPrice: <input type="text" name="bidPrice">
+    </p>
+    <p>
+        <input type="submit" value="Submit"/> <input type="reset" value="Reset">
+    </p>
+</form>
+
+</body>
+</html>
