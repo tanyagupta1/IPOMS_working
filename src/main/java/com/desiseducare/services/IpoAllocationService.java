@@ -43,5 +43,9 @@ public class IpoAllocationService
     {
         return ipoAllocationRepository.findAllByCompanyIdIs(companyId);
     }
+    public List<IpoAllocation> getAllocationByUser(Integer userId)
+    {
+        return ipoAllocationRepository.findAllByUserIdIs(userId);
+    }
 
 }

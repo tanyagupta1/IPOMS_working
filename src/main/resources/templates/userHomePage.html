@@ -18,6 +18,9 @@
 <form action="#" th:action="@{/user/getBids/{id}(id=${userId})}"  method="post">
     <input type="submit" value="View previous bids"/>
 </form>
+<form action="#" th:action="@{/user/getIPOAllocation/{id}(id=${userId})}"  method="post">
+    <input type="submit" value="Get Allocated IPOs"/>
+</form>
 </body>
 <form action="#" th:action="@{/user/logout}"  method="post">
     <input type="submit" value="Logout"/>

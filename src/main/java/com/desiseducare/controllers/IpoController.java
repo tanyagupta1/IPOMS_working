@@ -174,6 +174,13 @@ public class IpoController
         model.addAttribute("bids",bids);
         return "bidsTable";
     }
+    @RequestMapping(path = "/user/getIPOAllocation/{userId}",method={RequestMethod.POST,RequestMethod.GET})
+    public String getIPOAllocation(Model model,@PathVariable("userId") Integer userId)
+    {
+        List<IpoAllocation> allocation= ipoAllocationService.getAllocationByUser(userId);
+        model.addAttribute("bids",allocation);
+        return "AllocatedIPO";
+    }
 
     @RequestMapping(path="/user/getUserOpenIPOs/{userId}",method= {RequestMethod.POST,RequestMethod.GET})
     public String getUserOpenIPOs(Model model,@PathVariable("userId") Integer userId)

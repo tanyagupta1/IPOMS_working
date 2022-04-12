@@ -12,5 +12,6 @@ import java.util.List;
 public interface IpoAllocationRepository extends JpaRepository<IpoAllocation,Integer>
 {
     List<IpoAllocation> findAllByCompanyIdIs(Integer companyId);
+    List<IpoAllocation> findAllByUserIdIs(Integer userId);
 
 }
