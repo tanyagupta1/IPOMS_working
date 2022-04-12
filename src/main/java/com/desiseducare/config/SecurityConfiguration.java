@@ -39,7 +39,6 @@ public class SecurityConfiguration{
         @Autowired
         private UserDetailsServiceImpl userDetailsService;
 
-
         @Autowired
         private BCryptPasswordEncoder passwordEncoder;
 

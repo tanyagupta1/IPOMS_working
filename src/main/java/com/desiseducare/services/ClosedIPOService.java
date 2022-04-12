@@ -3,8 +3,10 @@ package com.desiseducare.services;
 import com.desiseducare.models.Bids;
 import com.desiseducare.models.ClosedIPO;
 import com.desiseducare.models.IpoAllocation;
+import com.desiseducare.models.OpenIPO;
 import com.desiseducare.repository.BidsRepository;
 import com.desiseducare.repository.ClosedIPORepository;
+import com.desiseducare.repository.OpenIpoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,8 @@ public class ClosedIPOService
     IpoAllocationService ipoAllocationService;
     @Autowired
     RefundService refundService;
+    @Autowired
+    OpenIpoRepository openIpoRepository;
     /**
      * Function that performs all allocation of bids after end date of an IPO.
      * It calculates the subscription level and allots shares based on it.
@@ -52,7 +56,8 @@ public class ClosedIPOService
             float subscriptionLevelNII = Math.min(((float) noOfLotsNII) / ((float) noOfBidLotsNII), 1f);
             System.out.println("MY subscription level " + subscriptionLevelNII);
             for (Bids b : NII) {
-                ipoAllocationService.allocateIPO(new IpoAllocation(closedIPO.getCompanyID(), b.getUserId(), b.getUserType(), Math.round(b.getNumberOfLotsSubscribed() * subscriptionLevelNII), b.getPlatformID(), b.getBidId()));
+                OpenIPO ipo = openIpoRepository.getById(b.getCompanyId());
+                ipoAllocationService.allocateIPO(new IpoAllocation(closedIPO.getCompanyID(), b.getUserId(), b.getUserType(), Math.round(b.getNumberOfLotsSubscribed() * subscriptionLevelNII)*ipo.getLotSize(), b.getPlatformID(), b.getBidId()));
             }
         }
         //allocate QBI
@@ -65,7 +70,8 @@ public class ClosedIPOService
             float subscriptionLevelQBI = Math.min(((float) noOfLotsQBI) / ((float) noOfBidLotsQBI), 1f);
             System.out.println("QBI subscription level " + subscriptionLevelQBI);
             for (Bids b : QBI) {
-                ipoAllocationService.allocateIPO(new IpoAllocation(closedIPO.getCompanyID(), b.getUserId(), b.getUserType(), Math.round(b.getNumberOfLotsSubscribed() * subscriptionLevelQBI), b.getPlatformID(), b.getBidId()));
+                OpenIPO ipo = openIpoRepository.getById(b.getCompanyId());
+                ipoAllocationService.allocateIPO(new IpoAllocation(closedIPO.getCompanyID(), b.getUserId(), b.getUserType(), Math.round(b.getNumberOfLotsSubscribed() * subscriptionLevelQBI)*ipo.getLotSize(), b.getPlatformID(), b.getBidId()));
             }
         }
         //RII
@@ -113,7 +119,8 @@ public class ClosedIPOService
             } else //everyone gets their exact demand
             {
                 for (Bids b : RII) {
-                    ipoAllocationService.allocateIPO(new IpoAllocation(closedIPO.getCompanyID(), b.getUserId(), b.getUserType(), Math.round(b.getNumberOfLotsSubscribed()), b.getPlatformID(), b.getBidId()));
+                    OpenIPO ipo = openIpoRepository.getById(b.getCompanyId());
+                    ipoAllocationService.allocateIPO(new IpoAllocation(closedIPO.getCompanyID(), b.getUserId(), b.getUserType(), Math.round(b.getNumberOfLotsSubscribed())*ipo.getLotSize(), b.getPlatformID(), b.getBidId()));
                 }
 
             }

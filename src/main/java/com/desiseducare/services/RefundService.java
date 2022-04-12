@@ -38,7 +38,7 @@ public class RefundService {
             Bids bid = bidsRepository.getById(allocation.getBidID());
             unallocatedBids.remove(bid);
             Float paidAmount = bid.getTotalPrice();
-            Float allocationPrice = allocation.getNoOfSharesAllocated()*cutoffPrice;
+            Float allocationPrice = allocation.getNoOfSharesAllocated()*cutoffPrice ;
             walletService.refundBid(bid, paidAmount - allocationPrice);
         }
         for (Bids unallotedBid: unallocatedBids){
