@@ -45,3 +45,8 @@ Run the IpoManagementApplication.java file and go to localhost:8090 and if sign 
 | View all companies                   | localhost:8090/getAllCompanies                            |
 | View particular company              | localhost:8090/getCompany/{CompanyId}                     |
 | Delete company                       | localhost:8090/deleteCompany/{CompanyId}                  |
+
+
+#### To-dos
+- Improve UI
+
